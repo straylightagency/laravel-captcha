@@ -2,9 +2,9 @@
 
 namespace Straylightagency\LaravelCaptcha\Verifiers;
 
-use Straylightagency\LaravelCaptcha\VerifierContract;
-use Illuminate\Http\Client\ConnectionException;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Http\Client\ConnectionException;
+use Straylightagency\LaravelCaptcha\VerifierContract;
 
 /**
  * Google Recaptcha Enterprise Verifier, using the new API with site key, api key and project ID, no longer using secret key.

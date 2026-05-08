@@ -2,11 +2,11 @@
 
 namespace Straylightagency\LaravelCaptcha;
 
+use Illuminate\Support\Arr;
 use Straylightagency\LaravelCaptcha\Verifiers\FakeVerifier;
+use Straylightagency\LaravelCaptcha\Verifiers\TurnstileVerifier;
 use Straylightagency\LaravelCaptcha\Verifiers\ReCaptchaVerifier;
 use Straylightagency\LaravelCaptcha\Verifiers\ReCaptchaEnterpriseVerifier;
-use Straylightagency\LaravelCaptcha\Verifiers\TurnstileVerifier;
-use Illuminate\Support\Arr;
 
 /**
  * Verifier Factory class.
@@ -23,8 +23,7 @@ class Verifier
      */
     public static function create(): VerifierContract {
         $config = config('captcha');
-        $driver = $config['driver'];
-        $driver_config = Arr::get( $config, $driver );
+        $driver_config = Arr::get( $config, $driver = $config['driver'] );
 
         return match( $driver ) {
             'recaptcha' => self::createReCaptchaVerifier( $driver_config ),
