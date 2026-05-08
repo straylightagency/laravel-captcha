@@ -1,0 +1,45 @@
+{
+  "name": "straylightagency/laravel-captcha",
+  "description": "Laravel package with prepared drivers to enable captcha services like Google Recaptcha or Cloudflare Turnstile using Validator Rules.",
+  "keywords": [
+    "captcha",
+    "recaptcha",
+    "recaptcha-enterprise",
+    "turnstile"
+  ],
+  "homepage": "https://github.com/straylightagency/laravel-captcha",
+  "license": "MIT",
+  "type": "library",
+  "authors": [
+    {
+      "name": "Anthony Pauwels",
+      "email": "anthony@straylightagency.be",
+      "homepage": "https://straylightagency.be",
+      "role": "Developer"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Straylightagency\\LaravelCaptcha\\": "src"
+    },
+    "files": [
+      "src/helpers.php"
+    ]
+  },
+  "require": {
+    "php":">=8.3.0",
+    "illuminate/support": "^11.0",
+    "illuminate/translation": "^11.0",
+    "illuminate/contracts": "^11.0",
+    "illuminate/http": "^11.0"
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Straylightagency\\LaravelCaptcha\\CaptchaServiceProvider"
+      ]
+    }
+  }
+}
