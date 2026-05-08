@@ -24,5 +24,8 @@ class CaptchaServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        $this->publishes( [
+            __DIR__.'/config/captcha.php' => config_path('captcha.php'),
+        ] );
     }
 }
