@@ -1,10 +1,11 @@
 <?php
 
-namespace Straylightagency\LaravelCaptcha;
+namespace Straylightagency\LaravelCaptcha\Rules;
 
 use Closure;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Translation\PotentiallyTranslatedString;
+use Straylightagency\LaravelCaptcha\VerifierContract;
 
 /**
  * Validate a received token against a Verifier strategy.
@@ -12,7 +13,7 @@ use Illuminate\Translation\PotentiallyTranslatedString;
  * @package Straylightagency\LaravelCaptcha
  * @author Anthony Pauwels <anthony@straylightagency.be>
  */
-readonly class CaptchaRule implements ValidationRule
+readonly class Captcha implements ValidationRule
 {
     /**
      * @param VerifierContract $verifier
@@ -42,10 +43,20 @@ readonly class CaptchaRule implements ValidationRule
      *
      * @return array[]
      */
-    public static function rules(): array
+    public function default(string $key_name = 'captcha'): array
     {
         return [
-            'captcha' => [ 'required', 'string', new self( app( VerifierContract::class ) ) ],
+            $key_name => [ 'required', 'string', $this ],
         ];
+    }
+
+    /**
+     * Return a new instance of Captcha rule with the selected verifier.
+     *
+     * @return self
+     */
+    public static function make(): self
+    {
+        return new self( app( VerifierContract::class ) );
     }
 }

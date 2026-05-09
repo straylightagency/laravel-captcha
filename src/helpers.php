@@ -1,6 +1,6 @@
 <?php
 
-use Straylightagency\LaravelCaptcha\CaptchaRule;
+use Straylightagency\LaravelCaptcha\Rules\Captcha;
 use Straylightagency\LaravelCaptcha\Verifier;
 
 if ( ! function_exists('captcha_script') ) {
@@ -15,14 +15,16 @@ if ( ! function_exists('captcha_script') ) {
     }
 }
 
-if ( ! function_exists('captcha_rules') ) {
+if ( ! function_exists('captcha_rule') ) {
     /**
-     * Return captcha rules : 'required', 'string' and CaptchaRule with injected Verifier
+     * Return a new Captcha rule with injected Verifier.
      *
-     * @return array
+     * Use the `->default()` method if you want to use the `required` and `string` macro with the `captcha` rule.
+     *
+     * @return Captcha
      */
-    function captcha_rules(): array
+    function captcha_rule(): Captcha
     {
-        return CaptchaRule::rules();
+        return Captcha::make();
     }
 }
