@@ -6,6 +6,7 @@ use Closure;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Translation\PotentiallyTranslatedString;
 use Straylightagency\LaravelCaptcha\VerifierContract;
+use Straylightagency\LaravelCaptcha\Verifiers\FakeVerifier;
 
 /**
  * Validate a received token against a Verifier strategy.
@@ -39,12 +40,19 @@ readonly class Captcha implements ValidationRule
     }
 
     /**
-     * Return the rules to use in the Validator.
+     * Return the rules to use in the Validator array.
+     * FakeVerifier do not use the `required` and `string` rules, avoiding error when no `captcha` field is sent.
      *
      * @return array[]
      */
     public function default(string $key_name = 'captcha'): array
     {
+        if ( $this->verifier instanceof FakeVerifier ) {
+            return [
+                $key_name => [ $this ],
+            ];
+        }
+
         return [
             $key_name => [ 'required', 'string', $this ],
         ];

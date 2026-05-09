@@ -13,7 +13,7 @@ composer require straylightagency/laravel-captcha
 
 If you do not use auto-discovery, add the ServiceProvider to the providers array in `bootstrap/providers.php` :
 ```php
-Straylightagency\LaravelCaptcha\CaptchaServiceProvider::class,
+\Straylightagency\LaravelCaptcha\CaptchaServiceProvider::class,
 ```
 
 Use this artisan command to publish the captcha.php file inside your config folder :
