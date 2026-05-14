@@ -27,7 +27,7 @@ class Verifier
 
         return match( $driver ) {
             'recaptcha' => self::createReCaptchaVerifier( $driver_config ),
-            'recaptcha_enterprise' => self::createReCaptchaEnterpriseVerifier( $driver_config ),
+            'recaptcha-enterprise' => self::createReCaptchaEnterpriseVerifier( $driver_config ),
             'turnstile' => self::createTurnstileVerifier( $driver_config ),
             default => self::createFakeVerifier(),
         };

@@ -1,4 +1,4 @@
-# PHP Laravel Captcha
+# Laravel Captcha
 
 Adds Captcha verification functionality to Laravel based on services API.
 
@@ -23,8 +23,8 @@ php artisan vendor:publish --tag=captcha
 
 You must set the site key and secret key based on the service you want to use inside your `.env` file :
 ```dotenv
-## select your drive here : fake, recaptcha, recaptcha_enterprise or turnstile
-CAPTCHA_DRIVER=recaptcha_enterprise
+## select your drive here : fake, recaptcha, recaptcha-enterprise or turnstile
+CAPTCHA_DRIVER=recaptcha-enterprise
 
 ## if you use Google ReCaptcha or ReCaptcha Enterprise :
 GOOGLE_RECAPTCHA_SITE_KEY="FAK3S1T3K3Y21AI3C9S3VJZ-V65M1SMWLGEPX4SB"

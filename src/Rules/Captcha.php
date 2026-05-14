@@ -4,8 +4,8 @@ namespace Straylightagency\LaravelCaptcha\Rules;
 
 use Closure;
 use Illuminate\Contracts\Validation\ValidationRule;
-use Illuminate\Translation\PotentiallyTranslatedString;
 use Straylightagency\LaravelCaptcha\VerifierContract;
+use Illuminate\Translation\PotentiallyTranslatedString;
 use Straylightagency\LaravelCaptcha\Verifiers\FakeVerifier;
 
 /**
@@ -35,7 +35,7 @@ readonly class Captcha implements ValidationRule
     public function validate(string $attribute, mixed $value, Closure $fail): void
     {
         if ( ! $this->verifier->verify( $value, request()->ip() ) ) {
-            $fail('captcha.verify')->translate();
+            $fail('validation.captcha')->translate();
         }
     }
 

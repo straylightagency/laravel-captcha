@@ -7,7 +7,7 @@ return [
         'secret_key' => env('GOOGLE_RECAPTCHA_SECRET_KEY', ''),
     ],
 
-    'recaptcha_enterprise' => [
+    'recaptcha-enterprise' => [
         'site_key' => env('GOOGLE_RECAPTCHA_SITE_KEY', ''),
         'api_key' => env('GOOGLE_RECAPTCHA_API_KEY', ''),
         'project_id' => env('GOOGLE_RECAPTCHA_PROJECT_ID', ''),
