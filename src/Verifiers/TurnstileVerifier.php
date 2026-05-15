@@ -40,7 +40,7 @@ readonly class TurnstileVerifier implements VerifierContract
             'remoteip' => $ip,
         ]);
 
-        return boolval($response->json('success'));
+        return boolval( $response->json('success') );
     }
 
     /**

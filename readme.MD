@@ -11,7 +11,7 @@ composer require straylightagency/laravel-captcha
 
 ### Laravel without auto-discovery:
 
-If you do not use auto-discovery, add the ServiceProvider to the providers array in `bootstrap/providers.php` :
+If you do not use auto-discovery, add the `CaptchaServiceProvider` to the providers array in `bootstrap/providers.php` :
 ```php
 \Straylightagency\LaravelCaptcha\CaptchaServiceProvider::class,
 ```

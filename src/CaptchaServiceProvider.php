@@ -38,8 +38,20 @@ class CaptchaServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        $this->publishes( [
-            __DIR__.'/config/captcha.php' => config_path('captcha.php'),
-        ], 'captcha' );
+        if ( $this->app->runningInConsole() ) {
+            $this->publishes( [
+                __DIR__.'/config/captcha.php' => config_path('captcha.php'),
+            ], 'captcha' );
+        }
+    }
+
+    /**
+     * Get the services provided by the provider.
+     *
+     * @return array
+     */
+    public function provides(): array
+    {
+        return [ VerifierContract::class ];
     }
 }
